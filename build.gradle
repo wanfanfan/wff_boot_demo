@@ -1,0 +1,56 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'war'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.wtyt.base'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart',
+                   'Implementation-Version': version
+    }
+}
+
+repositories {
+    mavenCentral()
+	maven{ url "http://repo.log56.com/nexus2/content/groups/public/" }
+	maven { url "https://repo.spring.io/snapshot" }
+	maven { url "https://repo.spring.io/milestone" }
+}
+
+ext {
+	springCloudVersion = 'Edgware.SR3'
+}
+
+configurations {
+	compile.exclude group: 'ch.qos.logback', module: 'logback-classic'
+	compile.exclude module: 'log4j-to-slf4j'
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-log4j2')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.8.13'
+	
+	testCompile('org.springframework.boot:spring-boot-starter-test'){exclude group: 'org.skyscreamer', module: 'jsonassert'}
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
+
