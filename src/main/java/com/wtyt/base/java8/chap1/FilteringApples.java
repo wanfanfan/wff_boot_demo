@@ -34,6 +34,7 @@ public class FilteringApples {
 				result.add(apple);
 			}
 		}
+		//result.sort(c);
 		return result;
 	}
 
