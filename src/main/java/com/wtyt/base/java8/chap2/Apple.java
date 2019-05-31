@@ -4,6 +4,10 @@ public class Apple {
 	
 	private Integer weight;
 	private String color;
+	
+	public Apple(int weight) {
+		this.setWeight(weight);
+	}
 
 	public Apple(int weight, String color) {
 		this.setWeight(weight);
