@@ -1,5 +1,6 @@
 buildscript {
 	repositories {
+	    maven{ url "http://repo.log56.com/nexus2/content/groups/public/" }
 		mavenCentral()
 	}
 	dependencies {
@@ -46,6 +47,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.8.13'
     compile('org.springframework.boot:spring-boot-starter-amqp')
+    compile group: 'com.baomidou', name: 'mybatis-plus-boot-starter', version: '3.1.2'
 	
 	testCompile('org.springframework.boot:spring-boot-starter-test'){exclude group: 'org.skyscreamer', module: 'jsonassert'}
 }
