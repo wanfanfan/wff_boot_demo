@@ -62,6 +62,10 @@ dependencies {
     compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.8.13'
     compile('org.springframework.boot:spring-boot-starter-amqp')
     compile group: 'com.baomidou', name: 'mybatis-plus-boot-starter', version: '3.1.2'
+    
+    /*lombok*/
+    compileOnly('org.projectlombok:lombok:1.18.4')
+    annotationProcessor('org.projectlombok:lombok:1.18.4')
 	
 	testCompile('org.springframework.boot:spring-boot-starter-test'){exclude group: 'org.skyscreamer', module: 'jsonassert'}
 }
